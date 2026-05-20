@@ -336,7 +336,23 @@
     }, 1000);
 </script>
 
-
-
+<!-- AUTOMATIC FAVICON INJECTOR -->
+<script>
+    (function() {
+        // Find if a favicon link element already exists on the page
+        let favicon = document.querySelector("link[rel*='icon']");
+        
+        // If it doesn't exist, create a new link element
+        if (!favicon) {
+            favicon = document.createElement('link');
+            favicon.rel = 'icon';
+            document.head.appendChild(favicon);
+        }
+        
+        // Set the path to your image and assign the correct type
+        favicon.href = 'favicon.png';
+        favicon.type = 'image/png';
+    })();
+</script>
 </body>
 </html>
