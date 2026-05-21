@@ -11,6 +11,13 @@ GN-math games 🫡
 freezenova 🫡
 freezenova cloud 🫡
 Ultimate game stash 🫡
+FOR GAMES
+
+
+For Movies crdits to: Czone,🫡 cinebay,🫡 google movies,🫡 youtube movies 🫡
+
+
+
 
 Staff:
 Gohan (CEO/Host/desinger/chat mod)
