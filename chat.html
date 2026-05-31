@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gohans Tutoring Chat</title>
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Logo Styling based on the black and orange theme */
+        .logo-container {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text-white {
+            color: #FFFFFF;
+            margin-right: 5px;
+        }
+
+        .logo-text-orange {
+            background-color: #FF9900;
+            color: #000000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: transform;
+        }
+
+        /* Chat Window Container */
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #1a1a1a;
+            border: 2px solid #FF9900;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Profile Setup Bar */
+        .profile-bar {
+            background-color: #2b2b2b;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .profile-bar input[type="text"] {
+            background-color: #111;
+            border: 1px solid #FF9900;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        /* Chat Messages Area */
+        .messages-area {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            background-color: #FF9900;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .username {
+            color: #FF9900;
+            font-weight: bold;
+        }
+
+        /* Input Bar */
+        .input-bar {
+            display: flex;
+            padding: 10px;
+            background-color: #2b2b2b;
+            gap: 10px;
+        }
+
+        .input-bar input[type="text"] {
+            flex-grow: 1;
+            background-color: #111;
+            border: 1px solid #333;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .input-bar button {
+            background-color: #FF9900;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .input-bar button:hover {
+            background-color: #e68a00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <span class="logo-text-white">Gohans</span>
+        <span class="logo-text-orange">Tutoring</span>
+    </div>
+
+    <div class="chat-container">
+        
+        <div class="profile-bar">
+            <label for="username-input">Name:</label>
+            <input type="text" id="username-input" value="Player1">
+            
+            <label for="avatar-input">Avatar URL:</label>
+            <input type="text" id="avatar-input" placeholder="Paste image link...">
+        </div>
+
+        <div class="messages-area" id="messages-area">
+            <div class="message">
+                <div class="avatar"></div>
+                <div>
+                    <span class="username">System:</span>
+                    <span class="text">Welcome to the chat! customize your name above.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-bar">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Simple function to add messages to the screen locally
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const usernameInput = document.getElementById('username-input');
+            const messagesArea = document.getElementById('messages-area');
+            
+            if (messageInput.value.trim() !== "") {
+                // Create message element
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                
+                // Add content
+                messageDiv.innerHTML = `
+                    <div class="avatar"></div>
+                    <div>
+                        <span class="username">${usernameInput.value}:</span>
+                        <span class="text">${messageInput.value}</span>
+                    </div>
+                `;
+                
+                messagesArea.appendChild(messageDiv);
+                
+                // Clear input
+                messageInput.value = "";
+                
+                // Scroll to bottom
+                messagesArea.scrollTop = messagesArea.scrollHeight;
+            }
+        }
+
+        // Allow pressing Enter to send
+        document.getElementById('message-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+
+</body>
+</html>
