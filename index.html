@@ -227,12 +227,12 @@
         // --- MATRIX ---
         const canvas = document.getElementById('matrix'); const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        const chars = 'ABCDEFGHIJKLMNOPGohanstutoringQRSTUVWXYZ0123456789$+-*/=%';
+        const chars = 'JOINMYDISCORDSERVERINTHELINKSITEILIKEDADDYEDUARDO';
         const fontSize = 16; const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#bec2cb'; ctx.font = fontSize + 'px monospace';
+            ctx.fillStyle = '#ffa442'; ctx.font = fontSize + 'px monospace';
             drops.forEach((y, i) => {
                 const text = chars[Math.floor(Math.random() * chars.length)];
                 ctx.fillText(text, i * fontSize, y * fontSize);
